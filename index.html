@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <form>
+        <label for="name">Name: <span style="color:red">*</span></label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="whatsapp">Whatsapp No.: <span style="color:red">*</span></label>
+        <input type="tel" id="whatsapp" name="whatsapp" required><br><br>
+
+        <label for="address">Address: <span style="color:red">*</span></label>
+        <input type="text" id="address" name="address" required placeholder="City, State"><br><br>
+
+        <label for="nimcet">NIMCET Score: <span style="color:red">*</span></label>
+        <input type="number" id="nimcet" name="nimcet" required><br><br>
+
+        <label for="prep">Coaching/Self: <span style="color:red">*</span></label>
+        <select id="prep" name="prep" required onchange="handlePrepChange(this)">
+            <option value="">Select</option>
+            <option value="coaching">Coaching</option>
+            <option value="self">Self</option>
+        </select><br><br>
+
+        <div id="coachingField" style="display:none;">
+            <label for="coaching">Coaching Name: <span style="color:red">*</span></label>
+            <input type="text" id="coaching" name="coaching"><br><br>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
