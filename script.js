@@ -9,9 +9,7 @@ function handlePrepChange(select) {
     }
 }
 
-// Add form submit handler
 document.addEventListener('DOMContentLoaded', function () {
-    // Add address placeholder hint
     document.getElementById('address').placeholder = 'City, State';
 
     const form = document.querySelector('form');
@@ -25,32 +23,27 @@ document.addEventListener('DOMContentLoaded', function () {
         const prep = document.getElementById('prep').value;
         const coaching = document.getElementById('coaching').value.trim();
 
-        // 1. All fields are compulsory
         if (!name || !whatsapp || !address || !nimcet || !prep || (prep === 'coaching' && !coaching)) {
             alert('All fields are compulsory.');
             return;
         }
 
-        // 2. Whatsapp no should be only 10 digits, ONLY digits
         if (!/^\d{10}$/.test(whatsapp)) {
             alert('Whatsapp No. should be exactly 10 digits.');
             return;
         }
 
-        // 4. NIMCET should be numerical between 0 and 1000 only
         const nimcetNum = Number(nimcet);
         if (isNaN(nimcetNum) || nimcetNum < 0 || nimcetNum > 1000) {
             alert('NIMCET Score should be between 0 and 1000.');
             return;
         }
 
-        // 5. If selected coaching, coaching name should not be blank
         if (prep === 'coaching' && !coaching) {
             alert('Please enter the Coaching Name.');
             return;
         }
 
-        // For Coaching/Self field
         const coachingOrSelf = prep === 'self' ? 'Self' : coaching;
 
         fetch('https://sheetdb.io/api/v1/p3xwk30ixniku', {
